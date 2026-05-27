@@ -14,6 +14,26 @@ image -> student features -> nearest distance to student memory bank -> score
 Training is not part of this package. The runtime only needs the checkpoint,
 normal reference images for the memory bank, and the images you want to score.
 
+## Get Teacher Artifacts
+
+Student training starts from teacher artifacts produced by the public
+`MH-PatchCore` project. From an `MH-PatchCore` checkout, place MVTec AD under
+`mvtec_datasets/` and run:
+
+```bash
+python run_mhpc.py --config configs/mvtec/teacher/mvtec_streaming_mh_patchcore_teacher_artifacts.yaml
+```
+
+The run writes the teacher payloads under:
+
+```text
+results/mvtec/mvtec_streaming_mh_patchcore_teacher_artifacts/<timestamp>/artifacts/
+```
+
+Use that `artifacts` directory as the teacher-artifact root for student
+training. The export contains the fitted teacher checkpoint, the teacher memory
+bank, and frozen replay features grouped by dataset and sample group.
+
 ## Install
 
 From a local checkout:
