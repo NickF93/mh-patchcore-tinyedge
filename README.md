@@ -17,8 +17,26 @@ normal reference images for the memory bank, and the images you want to score.
 ## Get Teacher Artifacts
 
 Student training starts from teacher artifacts produced by the public
-`MH-PatchCore` project. From an `MH-PatchCore` checkout, place MVTec AD under
-`mvtec_datasets/` and run:
+`MH-PatchCore` project.
+
+From a public `MH-PatchCore` checkout, install the project dependencies:
+
+```bash
+pip install -r requirements.txt
+pip install -r requirements-dev.txt
+```
+
+Place MVTec AD under `mvtec_datasets/` at the `MH-PatchCore` repository root:
+
+```text
+mvtec_datasets/
+  bottle/
+  cable/
+  ...
+  zipper/
+```
+
+Then run the teacher artifact export config:
 
 ```bash
 python run_mhpc.py --config configs/mvtec/teacher/mvtec_streaming_mh_patchcore_teacher_artifacts.yaml
